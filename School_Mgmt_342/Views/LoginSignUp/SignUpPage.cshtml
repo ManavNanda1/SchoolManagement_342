@@ -1,0 +1,62 @@
+﻿@model SchoolManagement_342.Models.Model.RegisterModel
+@{
+    Layout = null;
+}
+
+<!-- ===== CSS ===== -->
+<link rel="stylesheet" href="~/Content/LoginSignUpStyling/assets/css/styles.css">
+
+<!-- ===== BOX ICONS ===== -->
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<body>
+    <div class="login">
+        <div class="login__content">
+            <div class="login__img">
+                <img src="~/Content/LoginSignUpStyling/assets/img/img-login.svg" alt="">
+            </div>
+
+            <div class="login__forms">
+                @using (Html.BeginForm("SignUpPage", "LoginSignUp", FormMethod.Post, new { @class = "login__registre", id = "login-in" }))
+                {
+                    <h1 class="login__title">Sign Up</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        @Html.TextBoxFor(m => m.UserFirstName, new { placeholder = "Firstname", @class = "login__input" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.UserFirstName)
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        @Html.TextBoxFor(m => m.UserLastName, new { placeholder = "Lastname", @class = "login__input" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.UserLastName)
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        @Html.TextBoxFor(m => m.UserEmail, new { placeholder = "Email", @class = "login__input" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.UserEmail)
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        @Html.PasswordFor(m => m.UserPassword, new { placeholder = "Password", @class = "login__input" })
+                    </div>
+                    @Html.ValidationMessageFor(m => m.UserPassword)
+                        <button type="submit" class="login__button">Sign Up</button>
+
+                    <div>
+                        <span class="login__account">Don't have an Account ?</span>
+                        <a href="@Url.Action("LoginPage" , "LoginSignUp")"> <span class="login__signin" id="sign-up">Sign In</span></a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <!--===== MAIN JS =====-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/LoginSignUpStyling/assets/js/main.js"></script>
+</body>

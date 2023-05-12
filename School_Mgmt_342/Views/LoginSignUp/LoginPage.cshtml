@@ -1,0 +1,57 @@
+﻿@model SchoolManagement_342.Models.Model.LoginModel
+@{
+    Layout = null;
+}
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="~/Content/LoginSignUpStyling/assets/css/styles.css">
+
+    <!-- ===== BOX ICONS ===== -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+<body>
+    <div class="login">
+        <div class="login__content">
+            <div class="login__img">
+                <img src="~/Content/LoginSignUpStyling/assets/img/img-login.svg" alt="">
+            </div>
+
+            <div class="login__forms">
+                @using (Html.BeginForm("LoginPage", "LoginSignUp", FormMethod.Post, new { @class = "login__registre", id = "login-in" }))
+                {
+                    <h1 class="login__title">Sign In</h1>
+
+                    <div class="login__box">
+                        <i class='bx bx-user login__icon'></i>
+                        @Html.TextBoxFor(m => m.UserEmail, new { placeholder = "Email", @class = "login__input" })
+                    </div>
+                        @Html.ValidationMessageFor(m => m.UserEmail)
+
+                    <div class="login__box">
+                        <i class='bx bx-at login__icon'></i>
+                        @Html.PasswordFor(m => m.UserPassword, new { placeholder = "Password", @class = "login__input" })
+                    </div>
+                        @Html.ValidationMessageFor(m => m.UserPassword)
+
+                    <div class="login__box">
+                        <i class='bx bx-lock-alt login__icon'></i>
+                        @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirm Password", @class = "login__input" })
+                    </div>
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword.Length)
+                    @ViewBag.message;
+                    <button type="submit" class="login__button">Sign In</button>
+                    <div>
+                              <span class="login__account">Don't have an Account ?</span>
+                        <a href="@Url.Action("SignUpPage" , "LoginSignUp")"> <span class="login__signin" id="sign-up">Sign In</span></a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <!--===== MAIN JS =====-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Content/LoginSignUpStyling/assets/js/main.js"></script>
+</body>
+

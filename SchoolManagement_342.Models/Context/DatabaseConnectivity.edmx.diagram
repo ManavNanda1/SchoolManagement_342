@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9745b9fc987c4b4b9caf5d8e1c5b1d5c" Name="Diagram1">
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.City" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.Country" Width="1.5" PointX="2.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.State" Width="1.5" PointX="2.875" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.StudentTeacherDetail" Width="1.5" PointX="12.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.SubjectDetail" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.TeacherDetail" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.TeacherSubjectDetail" Width="1.5" PointX="12.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__City__CountryId__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__City__StateId__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__TeacherDet__City__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__State__CountryId__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__TeacherDe__Count__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__TeacherDe__State__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__StudentTe__Teach__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__TeacherSu__Subje__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__TeacherSu__Teach__47DBAE45" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Manav_SchoolMgmt_42Model.StudentDetail" Width="1.5" PointX="7.5" PointY="7.625" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__StudentDet__City__37A5467C" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__StudentDe__Count__35BCFE0A" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__StudentDe__State__36B12243" />
+        <AssociationConnector Association="Manav_SchoolMgmt_42Model.FK__StudentTe__Stude__440B1D61" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

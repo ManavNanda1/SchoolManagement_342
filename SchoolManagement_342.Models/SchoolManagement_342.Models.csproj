@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{93417984-4ECD-442D-B891-EE4488663EE1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SchoolManagement_342.Models</RootNamespace>
+    <AssemblyName>SchoolManagement_342.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Context\City.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Country.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DatabaseConnectivity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseConnectivity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DatabaseConnectivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\DatabaseConnectivity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseConnectivity.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_City_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_Country_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_State_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_Students_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_Subject_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\Sp_Get_Teachers_Result.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\State.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\StudentDetail.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\StudentTeacherDetail.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\SubjectDetail.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\TeacherDetail.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\TeacherSubjectDetail.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\User.cs">
+      <DependentUpon>DatabaseConnectivity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CityModel.cs" />
+    <Compile Include="Model\CountryModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\RegisterModel.cs" />
+    <Compile Include="Model\StateModel.cs" />
+    <Compile Include="Model\StudentModel.cs" />
+    <Compile Include="Model\SubjectModel.cs" />
+    <Compile Include="Model\TeacherModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="Context\DatabaseConnectivity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseConnectivity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Context\DatabaseConnectivity.edmx.diagram">
+      <DependentUpon>DatabaseConnectivity.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Context\DatabaseConnectivity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DatabaseConnectivity.Context.cs</LastGenOutput>
+      <DependentUpon>DatabaseConnectivity.edmx</DependentUpon>
+    </Content>
+    <Content Include="Context\DatabaseConnectivity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseConnectivity.edmx</DependentUpon>
+      <LastGenOutput>DatabaseConnectivity.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,25 @@
+﻿@model SchoolManagement_342.Models.Model.CountryModel
+@{
+    ViewBag.Title = "AddCountry";
+}
+<link href="~/Content/CommonStyling.css" rel="stylesheet" />
+<div class="text-center Main-Heading mb-3">
+    <h2> Add Country Below </h2>
+</div>
+@using (Html.BeginForm("AddCountry", "Country", FormMethod.Post)) { 
+
+<div class="row ">
+    <div class="form-group col-sm-12 ">
+        @Html.LabelFor(model => model.CountryName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.CountryName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CountryName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-12 text-center mt-4">
+        <button class="btn btn-outline-success" type="submit">Submit</button>
+    </div>
+</div>
+
+
+}

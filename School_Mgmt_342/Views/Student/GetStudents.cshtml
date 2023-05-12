@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SchoolManagement_342.Models.Context.Sp_Get_Students_Result>
+
+<link href="~/Content/CommonStyling.css" rel="stylesheet" />
+<div class="text-center Main-Heading mb-3">
+    <h2> Student Table  </h2>
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-dark table-bordered text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+            <th>
+                Actions
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityName)
+                </td>
+                <td>
+                    <button class="btn btn-outline-warning EditBtn ms-3 "><a class="text-white" href="@Url.Action("EditStudent" , "Student",new {id=item.id })">Edit</a></button>
+                    <button type="submit" class="btn btn-outline-danger" onclick="StudentDelConfirm(@item.id)">Delete</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<script>
+    function StudentDelConfirm(id) {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "/Student/DelStudent/" + id,
+                    type: "post",
+                    success: function (data) {
+                        location.reload();
+                    },
+                    error: function (error) {
+                        location.reload();
+                    }
+                });
+            }
+        })
+    }
+</script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>

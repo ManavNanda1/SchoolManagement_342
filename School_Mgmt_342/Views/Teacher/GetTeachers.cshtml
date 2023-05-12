@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SchoolManagement_342.Models.Context.Sp_Get_Teachers_Result>
+
+<link href="~/Content/CommonStyling.css" rel="stylesheet" />
+<div class="text-center Main-Heading mb-3">
+    <h2> Teacher Table  </h2>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-dark text-center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StateName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CityName)
+            </th>
+
+            <th>
+                Actions
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CityName)
+                </td>
+
+                <td>
+                    <button class="btn btn-outline-warning EditBtn ms-3 "><a class="text-white" href="@Url.Action("EditTeacher" , "Teacher",new {id=item.id })">Edit</a></button>
+                    <button type="submit" class="btn btn-outline-danger" onclick="TeacherDelConfirm(@item.id)">Delete</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/TeacherJs.js"></script>
