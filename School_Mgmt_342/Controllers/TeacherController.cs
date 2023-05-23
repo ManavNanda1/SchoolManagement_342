@@ -149,10 +149,12 @@ namespace School_Mgmt_342.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditTeacher(int Id, TeacherModel model)
+        public ActionResult EditTeacher(int Id, TeacherModel model, FormCollection collection)
         {
             try
             {
+                string SubjectID = collection["Subject"];
+                model.Subject = SubjectID;
                 NewObj.UpdateData(Id, model);
                 return RedirectToAction("GetTeachers");
             }

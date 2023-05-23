@@ -14,11 +14,12 @@ namespace SchoolManagement_342.Models.Model
         public string UserEmail { get; set; }
 
         [Required(ErrorMessage = "Password Is Required")]
-        [MinLength(8)]
+        [MinLength(9)]
+        [MaxLength (15)]
         public string UserPassword { get; set; }
-
-        [Required(ErrorMessage = "Password Is Required")]
-        [Compare("UserPassword", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        
+        [Required(ErrorMessage = "Confirm Password Is Required")]
+        [Compare(nameof(UserPassword), ErrorMessage = "Confirm password doesn't match, Type again !")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -243,3 +243,7 @@ img{
     bottom: -5.5rem;
   }
 }
+
+.CustValidCol{
+    color: red !important;
+}

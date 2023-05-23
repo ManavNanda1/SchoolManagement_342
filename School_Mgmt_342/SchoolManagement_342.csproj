@@ -145,6 +145,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginSignUpController.cs" />
     <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\StepperController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
@@ -2517,6 +2518,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Script.js" />
+    <Content Include="Scripts\Stepper.js" />
     <Content Include="Scripts\StudentJs.js" />
     <Content Include="Scripts\TeacherJs.js" />
     <Content Include="Web.config" />
@@ -2555,6 +2557,8 @@
     <Content Include="Views\Teacher\GetTeachers.cshtml" />
     <Content Include="Views\Teacher\EditTeacher.cshtml" />
     <Content Include="Views\Student\EditStudent.cshtml" />
+    <Content Include="Views\Stepper\StepperForm.cshtml" />
+    <Content Include="Views\Stepper\CustomStepper.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,10 +16,18 @@ namespace SchoolManagement_342.Repository.Services
 
         public void AddCity(CityModel CityDatas)
         {
-            CityHelper CityData = new CityHelper();
-            City s = CityData.AddCityInDb(CityDatas);
-            context.Cities.Add(s);
-            context.SaveChanges();
+            try
+            {
+                CityHelper CityData = new CityHelper();
+                City s = CityData.AddCityInDb(CityDatas);
+                context.Cities.Add(s);
+                context.SaveChanges();
+            }
+            catch(Exception E)
+            {
+                throw E;
+            }
+           
         }
 
         public List<Country> CountryDropDown()
@@ -95,7 +103,7 @@ namespace SchoolManagement_342.Repository.Services
                 var City = context.Cities.Where(x => x.Id == CityId).FirstOrDefault();
                 return new CityModel
                 {
-                    id = (int)City.Id,
+                    Id = (int)City.Id,
                     StateId = (int)City.StateId,
                     CountryId = (int)City.CountryId,
                     CityName = City.CityName

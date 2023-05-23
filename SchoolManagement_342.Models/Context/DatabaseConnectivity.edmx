@@ -672,6 +672,7 @@
           <Property Type="String" Name="StateName" Nullable="false" MaxLength="255" />
           <Property Type="String" Name="CityName" Nullable="true" />
           <Property Type="Int64" Name="id" Nullable="false" />
+          <Property Type="String" Name="Teacher" Nullable="true" MaxLength="255" />
           </ComplexType>
         <ComplexType Name="Sp_Get_Subject_Result">
           <Property Type="Int64" Name="Id" Nullable="false" />
@@ -890,6 +891,7 @@
                 <ScalarProperty Name="StateName" ColumnName="StateName" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
                 </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

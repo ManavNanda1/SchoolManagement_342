@@ -24,23 +24,23 @@
                         <i class='bx bx-user login__icon'></i>
                         @Html.TextBoxFor(m => m.UserEmail, new { placeholder = "Email", @class = "login__input" })
                     </div>
-                        @Html.ValidationMessageFor(m => m.UserEmail)
+                    @Html.ValidationMessageFor(m => m.UserEmail, null, new { @class = "CustValidCol" })
 
                     <div class="login__box">
                         <i class='bx bx-at login__icon'></i>
                         @Html.PasswordFor(m => m.UserPassword, new { placeholder = "Password", @class = "login__input" })
                     </div>
-                        @Html.ValidationMessageFor(m => m.UserPassword)
+                    @Html.ValidationMessageFor(m => m.UserPassword, null, new { @class = "CustValidCol" })
 
                     <div class="login__box">
                         <i class='bx bx-lock-alt login__icon'></i>
                         @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirm Password", @class = "login__input" })
                     </div>
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword.Length)
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "CustValidCol" })
                     @ViewBag.message;
                     <button type="submit" class="login__button">Sign In</button>
                     <div>
-                              <span class="login__account">Don't have an Account ?</span>
+                        <span class="login__account">Don't have an Account ?</span>
                         <a href="@Url.Action("SignUpPage" , "LoginSignUp")"> <span class="login__signin" id="sign-up">Sign In</span></a>
                     </div>
                 }

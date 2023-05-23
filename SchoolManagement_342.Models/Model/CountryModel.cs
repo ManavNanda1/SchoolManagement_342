@@ -12,7 +12,9 @@ namespace SchoolManagement_342.Models.Model
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Country Name Need To be Filled")]
+        [Required(ErrorMessage = "Country Name is required.")]
+        [RegularExpression(@"^[a-zA-Z\s]+$", ErrorMessage = "Country Name should only contain letters and spaces.")]
+        [StringLength(50, ErrorMessage = "Country Name cannot exceed 50 characters.")]
         public string CountryName { get; set; }
     }
 }

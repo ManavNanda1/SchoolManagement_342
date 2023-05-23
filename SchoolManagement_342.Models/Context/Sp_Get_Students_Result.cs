@@ -23,5 +23,6 @@ namespace SchoolManagement_342.Models.Context
         public string StateName { get; set; }
         public string CityName { get; set; }
         public long id { get; set; }
+        public string Teacher { get; set; }
     }
 }

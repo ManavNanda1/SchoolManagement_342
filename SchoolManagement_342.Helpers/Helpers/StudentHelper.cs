@@ -13,6 +13,7 @@ namespace SchoolManagement_342.Helpers.Helpers
         public StudentDetail AddData(StudentModel Registerdata)
         {
             StudentDetail data = new StudentDetail();
+            data.Id = Registerdata.Id;
             data.Fname = Registerdata.Fname;
             data.LName = Registerdata.LName;
             data.Address = Registerdata.Address;

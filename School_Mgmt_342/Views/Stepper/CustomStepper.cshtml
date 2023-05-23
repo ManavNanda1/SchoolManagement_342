@@ -1,0 +1,227 @@
+﻿
+<style>
+    .activePage {
+        background-color: #abd56b;
+    }
+    .Show{
+        display: block;
+    }
+    .Hide{
+        display: none;
+    }
+    .Stepper {
+        border: 2px solid black;
+        background-color: cornflowerblue;
+        color: white;
+        border-radius:20px;
+    }
+    #FethDataBox{
+        border:2px solid black;
+        border-radius:20px;
+        background-color:red;
+    }
+    .Heading{
+        border:2px solid white;
+        color:white;
+        background-color:black;
+        border-radius:15px;
+    }
+
+    .Heading:hover{
+        border: 4px solid White;
+        color: red;
+        border-radius: 20px;
+        transition: 0.5s ease-in;
+    }
+    #fetchedData{
+        color:white;
+        border: 4px solid white;
+        border-radius: 20px;
+        display:none;
+    }
+</style>
+
+
+
+    <div class="container Stepper p-3">
+
+        <div class="text-center Heading">
+            <h3>Lets Play An Quick Quiz</h3> 
+        </div>
+
+        <div class="row text-center mt-3" style="color: black; font-weight: bold; background-color: #c54231; ">
+            <div class="col-sm-2 border activePage">1</div>
+            <div class="col-sm-2 border">2</div>
+            <div class="col-sm-2 border">3</div>
+            <div class="col-sm-2 border">4</div>
+            <div class="col-sm-2 border">5</div>
+            <div class="col-sm-2 border">6</div>
+        </div>
+
+        <div class="Questions">
+            <div class="Q1 p-5 Show">
+                <div>
+                    <h3> Q1. Which Team is Gonna Win Ipl 2023</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="CSK" name="Team" /> CSK <br />
+                    <input type="radio" value="GT" name="Team" /> GT <br />
+                    <input type="radio" value="LSG" name="Team" /> LSG <br />
+                </div>
+            </div>
+
+            <div class="Q2 p-5 Hide">
+                <div>
+                    <h3> Q2. Who is Gonna Hit Most Fours In Ipl 2023</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="YJ" name="Player" /> Yashasvi Jaiswal <br />
+                    <input type="radio" value="DC" name="Player" /> Devon Conwey <br />
+                    <input type="radio" value="VK" name="Player" /> Virat Kohli <br />
+                </div>
+            </div>
+
+            <div class="Q3 p-5 Hide">
+                <div>
+                    <h3> Q3. Who is Gonna Hit Most Sixes In Ipl 2023</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="SD" name="Player" /> Shivam Dube <br />
+                    <input type="radio" value="FD" name="Player" /> FAF Du Plessis <br />
+                    <input type="radio" value="SKY" name="Player" /> SuryaKumar Yadav <br />
+                </div>
+            </div>
+
+            <div class="Q4 p-5 Hide">
+                <div>
+                    <h3> Q4. Which  Team Is Runned By Ambani? (Fixers)</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="MI" name="Player" /> MI <br />
+                    <input type="radio" value="RCB" name="Player" /> RCB <br />
+                    <input type="radio" value="KKR" name="Player" /> KKR <br />
+                </div>
+            </div>
+
+            <div class="Q5 p-5 Hide">
+                <div>
+                    <h3> Q5. Which Team has Highest Wins In Ipl 2023 ?</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="CSK" name="Player" /> CSK <br />
+                    <input type="radio" value="LSG" name="Player" /> LSG <br />
+                    <input type="radio" value="GT" name="Player" /> GT <br />
+                </div>
+            </div>
+
+            <div class="Q6 p-5 Hide">
+                <div>
+                    <h3> Q6. Which team Has Highest Fanbase ?</h3>
+                </div>
+                <div class="p-3">
+                    <input type="radio" value="CSK" name="Player" /> CSK <br />
+                    <input type="radio" value="CSK" name="Player" /> CSK <br />
+                    <input type="radio" value="CSK" name="Player" /> CSK <br />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row Buttons text-center mt-3 mb-3">
+            <div class="col-sm-6">
+                <button class="btn btn-warning" onclick="PrevQuestion()">Previous</button>
+            </div>
+            <div class="col-sm-6">
+                <button class="btn btn-success" onclick="NextQuestion()">Next</button>
+            </div>
+        </div>
+    </div>
+
+<div class="container text-center mt-4" id="FethDataBox">
+    <div class="text-center Heading mt-3 mb-2">
+        <h3>Lets fetch The  Data Which Is Stored In Our LocalStorage</h3>
+    </div>
+    <div class="mt-2" >
+        <button class="btn btn-success" id="fetchLocalData">Click Me To Fetch Data</button>
+        <button class="btn btn-primary" id="ClearLocalData"> Clear LocalStorage Data</button>
+    </div>
+
+    <div class="text-center mt-3">
+        <h4 id="fetchedData"></h4>
+    </div>
+</div>
+
+
+<script>
+    var Answers = [];
+    function NextQuestion() {
+        var Ans = $(".Show").find("input[type='radio']:checked").val();
+        Answers.push(Ans);
+     
+        var CurrentQuestionNo = document.querySelector(".Show");
+        var NextQuestion = CurrentQuestionNo.nextElementSibling;
+
+        var answersString = JSON.stringify(Answers);
+        localStorage.setItem('Answers', answersString);
+
+
+        if (CurrentQuestionNo.nextElementSibling == undefined) {
+            alert("Sorry There Are No More Questions Left");
+            return;
+        }
+        CurrentQuestionNo.classList.remove("Show");
+        CurrentQuestionNo.classList.add("Hide");
+        NextQuestion.classList.remove("Hide");
+        NextQuestion.classList.add("Show");
+        
+
+        var CurrentPage = document.querySelector(".activePage");
+        var NextPage = CurrentPage.nextElementSibling;
+
+        CurrentPage.classList.remove("activePage");
+        NextPage.classList.add("activePage");
+
+    }
+
+    function PrevQuestion() {
+        var CurrentQuestionNo = document.querySelector(".Show");
+        var NextQuestion = CurrentQuestionNo.previousElementSibling;
+
+        if (CurrentQuestionNo.previousElementSibling == undefined) {
+            alert("Please Click Next");
+            return;
+        }
+
+        CurrentQuestionNo.classList.remove("Show");
+        CurrentQuestionNo.classList.add("Hide");
+        NextQuestion.classList.remove("Hide");
+        NextQuestion.classList.add("Show");
+
+        var CurrentPage = document.querySelector(".activePage");
+        var NextPage = CurrentPage.previousElementSibling;
+
+        CurrentPage.classList.remove("activePage");
+        NextPage.classList.add("activePage");
+
+    }
+
+    var answersString = localStorage.getItem('Answers');
+    var answersArray = JSON.parse(answersString);
+
+    $("#fetchLocalData").on( 'click', function () {
+        answersArray.forEach(function (answer) {
+            var listItem = $('<li>').text(answer);
+            $("#fetchedData").css("display", "block");
+            $('#fetchedData').append(listItem);
+        });
+    })
+    $("#ClearLocalData").on('click', function () {
+        localStorage.removeItem("Answers");
+    })
+
+
+    
+    
+
+</script>
+

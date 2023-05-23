@@ -17,24 +17,43 @@ namespace School_Mgmt_342.Controllers
         }
         public ActionResult Index()
         {
-            ViewBag.Total = NewObj.GetTotalStudents();
-            ViewBag.TotalSub = NewObj.GetTotalSubjets();
-            ViewBag.TotalTeacher = NewObj.GetTotalTeachers();
-            return View();
+            try
+            {
+                ViewBag.Total = NewObj.GetTotalStudents();
+                ViewBag.TotalSub = NewObj.GetTotalSubjets();
+                ViewBag.TotalTeacher = NewObj.GetTotalTeachers();
+                return View();
+            }
+            catch(Exception E)
+            {
+                throw E;
+            }
+          
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            try
+            {
+                ViewBag.Message = "Your application description page.";
+                return View();
+            }
+            catch(Exception E)
+            {
+                throw E;
+            }
+           
         }
 
         public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+        {try
+            {
+                ViewBag.Message = "Your contact page.";
+                return View();
+            }
+            catch (Exception E) { 
+                throw E; 
+            }
         }
     }
 }

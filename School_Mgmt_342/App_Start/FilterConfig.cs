@@ -9,5 +9,7 @@ namespace School_Mgmt_342
         {
             filters.Add(new HandleErrorAttribute());
         }
+
+
     }
 }

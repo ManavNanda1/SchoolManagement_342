@@ -22,6 +22,7 @@ namespace School_Mgmt_342.Controllers
         {
             try
             {
+
                 return View();
             }
             catch (Exception Ex)
@@ -35,6 +36,7 @@ namespace School_Mgmt_342.Controllers
         {
             try
             {
+
                 if (newobj.LoginDataCheck(LoginData) == 1)
                 {
                     return RedirectToAction("Index", "Home");
@@ -45,7 +47,7 @@ namespace School_Mgmt_342.Controllers
                     return View();
                 }
                 
-                return View();
+                
             }
             catch (Exception Ex)
             {

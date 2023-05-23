@@ -10,11 +10,13 @@ namespace SchoolManagement_342.Models.Model
     public  class StateModel
     {
         [Key]
-        public int Id  { get; set; }
+        public int Id { get; set; }
 
-        [Required(ErrorMessage ="Please Enter State Name Below ")]
+        [Required(ErrorMessage = "State Name is required.")]
+        [StringLength(50, ErrorMessage = "State Name cannot exceed 50 characters.")]
         public string StateName { get; set; }
 
+        [Required(ErrorMessage = "Country ID is required.")]
         public int CountryId { get; set; }
     }
 }
